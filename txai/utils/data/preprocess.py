@@ -7,7 +7,7 @@ from .utils_phy12 import *
 
 base_path = '/home/owq978/TimeSeriesXAI/PAMdata/PAMAP2data/'
 
-np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)
+#np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)
 
 class PAMchunk:
     '''
