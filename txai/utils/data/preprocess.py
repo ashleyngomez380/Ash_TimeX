@@ -451,7 +451,7 @@ def decomposition_statistics(pool_layer, X):
 
     return d
 
-boiler_base_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/Boiler"
+boiler_base_path = "/content/drive/MyDrive/dataverse_files/extracted_data/Boiler"
 
 def process_Boiler(split_no = 1, device = None, base_path = boiler_base_path, normalize = False):
     x_full = torch.load(os.path.join(base_path, 'xfull.pt')).to(device).float()
