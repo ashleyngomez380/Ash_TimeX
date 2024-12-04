@@ -68,7 +68,7 @@ def main(args):
     targs = transformer_default_args
 
     for i in range(2, 6):
-        trainB, val, test = process_Boiler_OLD(split_no = i, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/Boiler/')
+        trainB, val, test = process_Boiler_OLD(split_no = i, device = device, base_path = '/content/drive/MyDrive/dataverse_files/extracted_data/Boiler')
         # Output of above are chunks
         train_dataset = DatasetwInds(*trainB)
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size = 32, shuffle = True)
