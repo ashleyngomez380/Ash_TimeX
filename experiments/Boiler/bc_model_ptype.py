@@ -43,7 +43,7 @@ def naming_convention(args):
 
 def main(args):
 
-    tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/Boiler/models/transformer_split={}.pt"
+    tencoder_path = "/content/drive/MyDrive/dataverse_files/extracted_data/Boiler/models/transformer_split={}.pt"
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
