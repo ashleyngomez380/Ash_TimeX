@@ -43,7 +43,7 @@ def naming_convention(args):
 
 def main(args):
 
-    tencoder_path = "/content/models/transformer_split={}.pt"
+    tencoder_path = "/content/models/transformer_split={}_cpu.pt"
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
