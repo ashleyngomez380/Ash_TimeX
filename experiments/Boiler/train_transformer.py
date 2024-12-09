@@ -1,4 +1,5 @@
 import torch
+import os
 
 from txai.utils.predictors.loss import Poly1CrossEntropyLoss
 from txai.trainers.train_transformer import train
@@ -38,8 +39,13 @@ for i in range(1, 6):
     model.to(device)
 
     optimizer = torch.optim.AdamW(model.parameters(), lr = 1e-3, weight_decay = 0.001)
-    
-    spath = 'models/transformer_split={}.pt'.format(i)
+    # Before saving the model
+    spath = f'models/transformer_split={i}.pt'
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(spath), exist_ok=True)
+
+
 
     model, loss, auc = train(
         model,
@@ -56,6 +62,7 @@ for i in range(1, 6):
     
     model_sdict_cpu = {k:v.cpu() for k, v in  model.state_dict().items()}
     torch.save(model_sdict_cpu, 'models/transformer_split={}_cpu.pt'.format(i))
+    torch.save(model.state_dict(), spath)
 
     f1 = eval_mvts_transformer(test, model, batch_size = 32)
     print('Test F1: {:.4f}'.format(f1))
