@@ -20,7 +20,7 @@ clf_criterion = Poly1CrossEntropyLoss(
 
 for i in range(1, 6):
     torch.cuda.empty_cache()
-    trainB, val, test = process_Boiler_OLD(split_no = i, device = device, base_path = '/content/drive/MyDrive/dataverse_files/extracted_data/Boiler')
+    trainB, val, test = process_Boiler_OLD(split_no = i, device = device, base_path = '/content/Ash_TimeX)
     train_dataset = RWDataset(*trainB)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size = 64, shuffle = True)
 
