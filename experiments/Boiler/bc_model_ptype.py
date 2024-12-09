@@ -123,8 +123,12 @@ def main(args):
         optimizer = torch.optim.AdamW(model.parameters(), lr = 1e-4, weight_decay = 0.001)
         
         model_suffix = naming_convention(args)
-        spath = os.path.join('models', model_suffix)
+        spath = os.path.join('modelsexp', model_suffix)
         spath = spath.format(i)
+        
+        # Ensures that the directory for saving the model exists
+        os.makedirs(os.path.dirname(spath), exist_ok=True)
+        
         print('saving at', spath)
 
         best_model = train_mv6_consistency(
