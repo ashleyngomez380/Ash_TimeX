@@ -54,7 +54,7 @@ def main(args):
 
     if args.lstm:
         arch = 'lstm'
-        tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/models/Scomb_lstm_split={}.pt"
+        tencoder_path = "/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt"
     elif args.cnn:
         arch = 'cnn'
         tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/models/Scomb_cnn_split={}.pt"
@@ -94,7 +94,7 @@ def main(args):
     targs = transformer_default_args
 
     for i in range(4, 6):
-        D = process_Synth(split_no = i, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/SeqCombSingleBetter')
+        D = process_Synth(split_no = i, device = device, base_path = '/content/Ash_TimeX/data/singleuv')
         dset = DatasetwInds(D['train_loader'].X.to(device), D['train_loader'].times.to(device), D['train_loader'].y.to(device))
         train_loader = torch.utils.data.DataLoader(dset, batch_size = 64, shuffle = True)
 
