@@ -184,6 +184,7 @@ def train(
                 os.makedirs(os.path.dirname(save_path), exist_ok=True)
                 
                 # Save the model
+                print(f"Saving model to: {save_path}")
                 torch.save(model.state_dict(), save_path)
                 #best_sd = model.state_dict()
 
