@@ -180,6 +180,10 @@ def train(
             if auc > max_val_auc:
                 max_val_auc = auc
                 best_epoch = epoch
+                # Create the directory if it doesn't exist
+                os.makedirs(os.path.dirname(save_path), exist_ok=True)
+                
+                # Save the model
                 torch.save(model.state_dict(), save_path)
                 #best_sd = model.state_dict()
 
