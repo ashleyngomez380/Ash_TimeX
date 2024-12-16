@@ -60,7 +60,7 @@ def main(args):
         tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/models/Scomb_cnn_split={}.pt"
     else:
         arch = 'transformer'
-        tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/formal_models/Scomb_transformer_split={}.pt"
+        tencoder_path = "/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt"
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
