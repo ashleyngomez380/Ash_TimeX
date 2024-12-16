@@ -152,6 +152,7 @@ def main(model, test, args):
         torch.save((Xnp, ynp, z_test_np, ptype_z_np), args.savepath)
 
     plt.show()
+    plt.savefig(test1.png)
 
 def eval_model(model, test):
 
