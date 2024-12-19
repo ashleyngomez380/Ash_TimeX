@@ -25,7 +25,7 @@ def main(model, test, class_num, heatmap = False, seed = None, topk = None, save
     visualize_explanations_new(model, test, show = False, class_num = class_num, heatmap = heatmap, topk = topk, seed = seed)
     fig = plt.gcf()
     #fig.set_size_inches(18.5, 10.5)
-    fig.set_size_inches(18, 5)
+    fig.set_size_inches(40, 5)
     if savepdf is not None:
         plt.savefig(savepdf)
     plt.show()
