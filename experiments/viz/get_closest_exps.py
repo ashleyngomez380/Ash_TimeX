@@ -354,7 +354,7 @@ if __name__ == '__main__':
         train = (D['train_loader'].X, D['train_loader'].times, D['train_loader'].y)
         test = D['test']
     elif D == 'scs_better':
-        D = process_Synth(split_no = args.split_no, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/SeqCombSingleBetter')
+        D = process_Synth(split_no = args.split_no, device = device, base_path = '/content/Ash_TimeX/data/singleuv')
         train = (D['train_loader'].X, D['train_loader'].times, D['train_loader'].y)
         test = D['test']
     elif D == 'freqshapeud':
