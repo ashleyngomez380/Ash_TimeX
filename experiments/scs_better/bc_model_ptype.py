@@ -51,6 +51,7 @@ def naming_convention(args):
 def main(args):
 
     #tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/formal_models/Scomb_transformer_split={}.pt"
+    tencoder_path =args.tencoder_path
 
     if args.lstm:
         arch = 'lstm'
@@ -60,7 +61,7 @@ def main(args):
         tencoder_path = "/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/experiments/scs_better/models/Scomb_cnn_split={}.pt"
     else:
         arch = 'transformer'
-        tencoder_path = "/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt"
+        #tencoder_path = "/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt"
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -201,6 +202,8 @@ if __name__ == '__main__':
 
     parser.add_argument('--rvalue', type = float, default = None, help = 'r for GSAT loss')
     parser.add_argument('--lam', type = float, default = 1.0, help = 'lambda between label alignment and consistency loss')
+
+    parser.add_argument('--tencoder_path' ,type=float ,default="/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt")
 
     args = parser.parse_args()
 
