@@ -203,7 +203,7 @@ if __name__ == '__main__':
     parser.add_argument('--rvalue', type = float, default = None, help = 'r for GSAT loss')
     parser.add_argument('--lam', type = float, default = 1.0, help = 'lambda between label alignment and consistency loss')
 
-    parser.add_argument('--tencoder_path' ,type=float ,default="/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt")
+    parser.add_argument('--tencoder_path' ,default="/content/Ash_TimeX/models/Scomb_transformer_split={}_cpu.pt")
 
     args = parser.parse_args()
 
