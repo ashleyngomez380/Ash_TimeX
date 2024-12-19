@@ -210,7 +210,7 @@ if __name__ == '__main__':
         D = process_Synth(split_no = args.split_no, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/SeqCombSingle')
         test = D['test']
     elif D == 'scs_better':
-        D = process_Synth(split_no = args.split_no, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/SeqCombSingleBetter')
+        D = process_Synth(split_no = args.split_no, device = device, base_path = '/content/Ash_TimeX/data/singleuv')
         test = D['test']
         gt_exps = D['gt_exps']
     elif D == 'freqshapeud':
