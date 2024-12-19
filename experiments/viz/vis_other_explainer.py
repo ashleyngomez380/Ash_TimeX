@@ -180,7 +180,7 @@ def main(test, args):
         ax[0,i].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
     
     #fig.set_size_inches(18.5, 3 * d)
-    fig.set_size_inches(18, 5)
+    fig.set_size_inches(40, 5)
     if args.savepdf is not None:
         plt.savefig(args.savepdf)
     plt.show()
