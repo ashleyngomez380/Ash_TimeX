@@ -152,6 +152,7 @@ def main(model, test, args):
         torch.save((Xnp, ynp, z_test_np, ptype_z_np), args.savepath)
 
     plt.show()
+    plt.savefig('/content/Ash_TimeX/models/vz/embedding_plot.png')
 
 def eval_model(model, test):
 
