@@ -172,23 +172,25 @@ def main(test, args):
     pred = out.softmax(dim=-1).argmax(dim=-1)
 
     for i in range(3):
-        # Create a new figure and axes for each prediction
-        fig = plt.plot(d)  # d rows, 1 column
+        # Create a new figure for each PDF
+        fig = plt.figure(figsize=(40, 5))  # Set figure size for 3 individual plots in a row
         
-        # Call vis_one_saliency to visualize the saliency for this prediction
-        vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], fig, col_num=i)
-        
-        # Set title for this figure's first axis
-        #ax[0, 0].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
-        
-        # Adjust the size of the figure
-        fig.set_size_inches(40, 5)
-        
-        # Optionally save the figure as PDF if specified
+        # Plot the saliency for the current prediction in separate axes within this figure
+        for j in range(3):
+            # Create a new axis for each of the 3 saliency maps
+            ax = fig.add_subplot(1, 3, j+1)  # 1 row, 3 columns, j+1 to select the plot number
+            
+            # Visualize saliency for the current subplot
+            vis_one_saliency(sampX[:, j, :], generated_exps[:, j, :], [ax], fig, col_num=j)
+            
+            # Set title for the current subplot
+            ax.set_title(f'y = {sampy[j].item()}, yhat = {pred[j].item()}')
+    
+        # Optionally save the figure as a PDF with a unique name for each plot
         if args.savepdf is not None:
-            plt.savefig(f'{args.savepdf}_{i}.pdf')  # Save each figure with a different name
-        
-        # Show the current figure
+            plt.savefig(f'{args.savepdf}_{i}.pdf')  # Save each figure with a different name (e.g., savepdf_0.pdf, etc.)
+    
+        # Show the current figure (optional)
         plt.show()
 
 if __name__ == '__main__':
