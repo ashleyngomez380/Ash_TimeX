@@ -173,13 +173,13 @@ def main(test, args):
 
     for i in range(3):
         # Create a new figure and axes for each prediction
-        fig, ax = plt.subplots(d, 3, sharex=True, squeeze=False)  # d rows, 1 column
+        fig = plt.plot(d, 3, sharex=True, squeeze=False)  # d rows, 1 column
         
         # Call vis_one_saliency to visualize the saliency for this prediction
         vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
         
         # Set title for this figure's first axis
-        ax[0, 0].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
+        #ax[0, 0].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
         
         # Adjust the size of the figure
         fig.set_size_inches(40, 5)
