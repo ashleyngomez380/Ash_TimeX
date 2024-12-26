@@ -10,12 +10,10 @@ def vis_one_saliency(X, exp, ax, fig, col_num):
 
     x_range = np.arange(T)
 
-    for i in range(d):
-        # Assumes heatmap:
-        px, py = np.meshgrid(np.linspace(min(x_range), max(x_range), len(x_range) + 1), [min(Xnp[:,i]), max(Xnp[:,i])])
-        ax[i,col_num].plot(x_range, Xnp[:,i], color = 'black')
-        cmap = ax[i,col_num].pcolormesh(px, py, np.expand_dims(enp[:,i], 0), alpha = 0.5, cmap = 'Greens')
-        fig.colorbar(cmap, ax = ax[i][col_num])
+    px, py = np.meshgrid(np.linspace(min(x_range), max(x_range), len(x_range) + 1), [min(Xnp[:,i]), max(Xnp[:,i])])
+    ax[i,col_num].plot(x_range, Xnp[:,i], color = 'black')
+    cmap = ax[i,col_num].pcolormesh(px, py, np.expand_dims(enp[:,i], 0), alpha = 0.5, cmap = 'Greens')
+    fig.colorbar(cmap, ax = ax[i][col_num])
 
 def vis_one_saliencyAsh(X, exp, ax, fig, col_num):
     """
