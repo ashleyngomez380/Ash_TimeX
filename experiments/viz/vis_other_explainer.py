@@ -171,19 +171,25 @@ def main(test, args):
     out = model(sampX, samptime, captum_input = False)
     pred = out.softmax(dim=-1).argmax(dim=-1)
 
-    fig, ax = plt.subplots(d, 3, sharex = True, squeeze = False)
-
-    #ax[0,0].set_title('test')
-
     for i in range(3):
-        vis_one_saliency(sampX[:,i,:], generated_exps[:,i,:], ax, fig, col_num = i)
-        ax[0,i].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
-    
-    #fig.set_size_inches(18.5, 3 * d)
-    fig.set_size_inches(40, 5)
-    if args.savepdf is not None:
-        plt.savefig(args.savepdf)
-    plt.show()
+        # Create a new figure and axes for each prediction
+        fig, ax = plt.subplots(d, 1, sharex=True, squeeze=False)  # d rows, 1 column
+        
+        # Call vis_one_saliency to visualize the saliency for this prediction
+        vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
+        
+        # Set title for this figure's first axis
+        ax[0, 0].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
+        
+        # Adjust the size of the figure
+        fig.set_size_inches(40, 5)
+        
+        # Optionally save the figure as PDF if specified
+        if args.savepdf is not None:
+            plt.savefig(f'{args.savepdf}_{i}.pdf')  # Save each figure with a different name
+        
+        # Show the current figure
+        plt.show()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
