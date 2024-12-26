@@ -176,7 +176,7 @@ def main(test, args):
         fig = plt.plot(d)  # d rows, 1 column
         
         # Call vis_one_saliency to visualize the saliency for this prediction
-        vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
+        vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], fig, col_num=i)
         
         # Set title for this figure's first axis
         #ax[0, 0].set_title('y = {:d}, yhat = {:d}'.format(sampy[i].item(), pred[i].item()))
