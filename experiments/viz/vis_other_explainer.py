@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from txai.models.encoders.transformer_simple import TransformerMVTS
 from txai.utils.experimental import get_explainer
-from txai.vis.vis_saliency import vis_one_saliency
+from txai.vis.vis_saliency import vis_one_saliency ,vis_one_salencyAsh
 from txai.models.encoders.simple import CNN, LSTM
 from txai.utils.data import process_Synth
 from txai.synth_data.simple_spike import SpikeTrainDataset
@@ -170,26 +170,21 @@ def main(test, args):
     # Prediction pass through model:
     out = model(sampX, samptime, captum_input = False)
     pred = out.softmax(dim=-1).argmax(dim=-1)
-
-    for i in range(3):
-        # Create a new figure for each PDF
-        fig = plt.figure(figsize=(40, 5))  # Set figure size for 3 individual plots in a row
-        
-        # Plot the saliency for the current prediction in separate axes within this figure
-        for j in range(3):
-            # Create a new axis for each of the 3 saliency maps
-            ax = fig.add_subplot(1, 3, j+1)  # 1 row, 3 columns, j+1 to select the plot number
-            
-            # Visualize saliency for the current subplot
-            vis_one_saliency(sampX[:, j, :], generated_exps[:, j, :], i, fig, col_num=j)
-            
-            # Set title for the current subplot
-            ax.set_title(f'y = {sampy[j].item()}, yhat = {pred[j].item()}')
     
-        # Optionally save the figure as a PDF with a unique name for each plot
+    for i in range(3):
+        # Create a new figure for each PDF (1 plot per PDF)
+        fig, ax = plt.subplots(figsize=(40, 5))  # Only one plot per figure (no subplots)
+        
+        # Visualize saliency for the current prediction in the current figure
+        vis_one_saliencyAsh(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
+        
+        # Set title for the current plot
+        ax.set_title(f'y = {sampy[i].item()}, yhat = {pred[i].item()}')
+        
+        # Save the figure as a PDF with a unique name for each plot
         if args.savepdf is not None:
             plt.savefig(f'{args.savepdf}_{i}.pdf')  # Save each figure with a different name (e.g., savepdf_0.pdf, etc.)
-    
+        
         # Show the current figure (optional)
         plt.show()
 
