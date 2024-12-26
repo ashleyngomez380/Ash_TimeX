@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from txai.models.encoders.transformer_simple import TransformerMVTS
 from txai.utils.experimental import get_explainer
-from txai.vis.vis_saliency import *
+from txai.vis.vis_saliency import vis_one_saliencyAsh 
 from txai.models.encoders.simple import CNN, LSTM
 from txai.utils.data import process_Synth
 from txai.synth_data.simple_spike import SpikeTrainDataset
