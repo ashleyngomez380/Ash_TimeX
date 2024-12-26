@@ -181,7 +181,7 @@ def main(test, args):
             ax = fig.add_subplot(1, 3, j+1)  # 1 row, 3 columns, j+1 to select the plot number
             
             # Visualize saliency for the current subplot
-            vis_one_saliency(sampX[:, j, :], generated_exps[:, j, :], [ax], fig, col_num=j)
+            vis_one_saliency(sampX[:, j, :], generated_exps[:, j, :], i, fig, col_num=j)
             
             # Set title for the current subplot
             ax.set_title(f'y = {sampy[j].item()}, yhat = {pred[j].item()}')
