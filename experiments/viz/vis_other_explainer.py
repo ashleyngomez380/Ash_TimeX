@@ -176,7 +176,7 @@ def main(test, args):
         fig, ax = plt.subplots(figsize=(40, 5))  # Only one plot per figure (no subplots)
         
         # Visualize saliency for the current prediction in the current figure
-        vis_one_saliencyAsh(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
+        vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
         
         # Set title for the current plot
         ax.set_title(f'y = {sampy[i].item()}, yhat = {pred[i].item()}')
