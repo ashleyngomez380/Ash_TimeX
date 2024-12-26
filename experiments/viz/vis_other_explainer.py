@@ -173,7 +173,7 @@ def main(test, args):
     
     for i in range(3):
         # Create a new figure and axes for each prediction
-        fig, ax = plt.subplots(d, 1, sharex=True, squeeze=False)  # d rows, 1 column
+        fig, ax = plt.subplots(3, 1, sharex=True, squeeze=False)  # d rows, 1 column
         
         # Call vis_one_saliency to visualize the saliency for this prediction
         vis_one_saliency(sampX[:, i, :], generated_exps[:, i, :], ax, fig, col_num=i)
