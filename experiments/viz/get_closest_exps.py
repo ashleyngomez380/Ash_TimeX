@@ -321,7 +321,10 @@ def main_sim_other_exp(args, train, test):
             vis_one_saliency_univariate(Xtrain[:,ind,:], all_exps[i][j], ax[(j+1),i], fig)
             ax[(j+1),i].set_title('label = {:d}'.format(ytrain[ind].item()), fontdict = {'fontsize':12})
     
+    if args.savepdf is not None:
+        plt.savefig(args.savepdf)
     plt.show()
+
 
 
 if __name__ == '__main__':
@@ -339,6 +342,7 @@ if __name__ == '__main__':
     parser.add_argument('--random', action = 'store_true', help = 'Picks random samples to visualize')
     parser.add_argument('--gettop', action = 'store_true')
     parser.add_argument('--savepath', type = str, default = None)
+    parser.add_argument('--savepdf', default = None)
 
     args = parser.parse_args()
 
