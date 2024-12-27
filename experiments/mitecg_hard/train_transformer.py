@@ -22,7 +22,7 @@ for i in range(2, 3):
     torch.cuda.empty_cache()
     trainEpi, val, test, _ = process_MITECG(split_no = i, device = device, hard_split = True, normalize = False, 
         balance_classes = False, div_time = False, need_binarize = True, exclude_pac_pvc = True,
-        base_path = '/data/Mitecg')
+        base_path = 'content/Ash_TimeX/data/Mitecg')
     train_dataset = EpiDataset(trainEpi.X, trainEpi.time, trainEpi.y)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size = 16, shuffle = True)
 
