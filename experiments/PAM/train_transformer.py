@@ -36,7 +36,7 @@ elapsed = []
 for i in range(1, 6):
     start = time.time()
     print(f'\n------------------ Split {i} ------------------')
-    trainPAM, val, test = process_PAM(split_no = i, device = device, base_path = '/n/data1/hms/dbmi/zitnik/lab/users/owq978/TimeSeriesCBM/datasets/PAMAP2data/', gethalf = True)
+    trainPAM, val, test = process_PAM(split_no = i, device = device, base_path = '/content/drive/MyDrive/PAM', gethalf = True)
     # Output of above are chunks
     train_dataset = PAMDataset(trainPAM.X, trainPAM.time, trainPAM.y)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size = 32, shuffle = True)
