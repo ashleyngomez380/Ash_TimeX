@@ -20,7 +20,8 @@ clf_criterion = Poly1CrossEntropyLoss(
 for i in range(1, 6):
     D = process_Synth(split_no = i, device = device, base_path = '/content/Ash_TimeX/data/singleuv')
     train_loader = torch.utils.data.DataLoader(D['train_loader'], batch_size = 64, shuffle = True)
-    print(D.shape)
+    
+    print(D)
 
     val, test = D['val'], D['test']
 
