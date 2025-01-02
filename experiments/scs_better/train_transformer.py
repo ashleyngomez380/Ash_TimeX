@@ -45,8 +45,8 @@ for i in range(1, 6):
     spath = 'models/Scomb_transformer_split={}.pt'.format(i)
 
     #print(train_loader.shape())
-    print(val.size)
-    print(test.size)
+    print(len(val))
+    print(len(size))
 
     model, loss, auc = train(
         model,
