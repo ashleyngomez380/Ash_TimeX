@@ -46,7 +46,7 @@ for i in range(1, 6):
 
     #print(train_loader.shape())
     print(len(val))
-    print(len(size))
+    print(len(test))
 
     model, loss, auc = train(
         model,
